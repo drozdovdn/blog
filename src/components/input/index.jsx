@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import style from './style.css';
 
 export default class Input extends Component {
   onChange = (e) => {
@@ -13,6 +14,7 @@ export default class Input extends Component {
 
     return (
       <input
+        className={style.input}
         type="text"
         value={value}
         onChange={this.onChange}

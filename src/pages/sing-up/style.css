@@ -1,0 +1,17 @@
+.form__sing__up {
+    width: 300px;
+    margin: 5% auto 0;
+    background: #949494;
+    padding: 20px;
+    border-radius: 5px;
+}
+.input__item {
+    margin-top: 8px;
+}
+.button {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 3px;
+    margin-top: 5px;
+    cursor: pointer;
+}

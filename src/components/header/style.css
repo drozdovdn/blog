@@ -1,3 +1,26 @@
-.wrapper {
-  border: 1px solid red;
+.header {
+  /*border: 1px solid red;*/
+  background: #202020;
+  display: flex;
+  justify-content: space-between;
 }
+.header__menu, .header__registration {
+  display: inline-flex;
+}
+.header__menu li, .header__registration li{
+  display: inline-flex;
+  border-right: 1px solid #fff;
+}
+.header__menu li:last-child, .header__registration li:last-child {
+  border-right: none;
+}
+.header__menu__link {
+  color: #ffffff;
+  padding: 10px 15px;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+.header__menu__link:hover {
+  background: #4b4b4b;
+}
+

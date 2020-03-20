@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --progress",
-    "build": "NODE_ENV=production webpack"
+    "start": "cross-env NODE_ENV=development webpack-dev-server --progress",
+    "build": "cross-env NODE_ENV=production webpack"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +17,7 @@
     "@babel/register": "^7.8.6",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^7.0.2",
     "css-loader": "^3.4.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.2.0",
@@ -32,11 +33,14 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "connected-react-router": "^6.8.0",
+    "history": "^4.10.1",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-redux": "^7.2.0",
+    "react-router-dom": "^5.1.2",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6"
   },

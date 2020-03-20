@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import style from './style.css';
 
 export default class Header extends Component {
   render() {
     return (
-      <div className={style.wrapper}>
-        header
-      </div>
+      <header className={style.header}>
+        <nav>
+            <ul className={style.header__menu}>
+                <li><Link className={style.header__menu__link} to="/">Главная</Link></li>
+                <li><Link className={style.header__menu__link} to="/about">О сайте</Link></li>
+                <li><Link className={style.header__menu__link} to="/new-post">Новый пост</Link></li>
+            </ul>
+        </nav>
+        <ul className={style.header__registration}>
+            <li><Link className={style.header__menu__link} to="/sing-in">Вход</Link></li>
+            <li><Link className={style.header__menu__link} to="/sing-up">Регистрация</Link></li>
+        </ul>
+      </header>
     )
   }
 }
