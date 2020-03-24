@@ -22,3 +22,4 @@ export default class Input extends Component {
     );
   }
 }
+

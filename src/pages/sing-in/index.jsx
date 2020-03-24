@@ -6,18 +6,22 @@ import PropTypes from 'prop-types';
 import Input from 'src/components/input';
 import * as Actions from './actions';
 import style from './style.css'
+import API from 'src/api';
 
 
 class SignIn extends Component {
   static propTypes = {
     dataForm: PropTypes.object.isRequired,
     changeFieldAction: PropTypes.func.isRequired,
+      singInAction: PropTypes.func.isRequired,
     // label: PropTypes.string.isRequired
   };
 
-  onClick = () => {
-    console.log(this.props);
-   this.props.push('/');
+  onSubmit = () => {
+      const {dataForm} = this.props;
+   //  console.log(this.props);
+   // this.props.push('/');
+      this.props.singInAction(dataForm);
   };
 
 
@@ -50,7 +54,7 @@ class SignIn extends Component {
             />
           </div>
         </div>
-        <button className={style.button} onClick={this.onClick}>Вход</button>
+        <button className={style.button} onClick={this.onSubmit}>Вход</button>
       </div>
     );
   }

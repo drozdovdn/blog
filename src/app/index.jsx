@@ -5,27 +5,34 @@ import {Switch, Route} from 'react-router-dom';
 import Header from 'src/components/header';
 import SignIn from 'src/pages/sing-in';
 import SignUp from 'src/pages/sing-up';
+import About from 'src/pages/about';
+import NewPost from 'src/pages/new-post';
 
 import * as Actions from './actions';
 import './style.css';
 
 class App extends Component {
+   //Аунтификация
+    componentDidMount() {
+      this.props.auth();
+    }
+
     render() {
         return (
             <>
-                <Header/>
+                <Header user={this.props.user} signOut={this.props.signOut}/>
                 <Switch>
-                    <Route path='/' exact>
+                    <Route path='/' exact={true}>
                         <div>
                             <h1>Главная</h1>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, ducimus.</p>
                         </div>
                     </Route>
                     <Route path='/about'>
-                        <h1>О сайте</h1>
+                        <About />
                     </Route>
                     <Route path='/new-post'>
-                        <h1>New post</h1>
+                        <NewPost/>
                     </Route>
                     <Route path='/sing-in'>
                         <SignIn/>
@@ -34,26 +41,6 @@ class App extends Component {
                         <SignUp/>
                     </Route>
                 </Switch>
-
-
-                {/*<div className="footer">*/}
-                {/*count = {this.props.counter}*/}
-                {/*<button*/}
-                {/*onClick={() => this.props.increaseAction(1)}*/}
-                {/*>*/}
-                {/*increase 1*/}
-                {/*</button>*/}
-                {/*<button*/}
-                {/*onClick={() => this.props.increaseAction(55)}*/}
-                {/*>*/}
-                {/*increase 55*/}
-                {/*</button>*/}
-                {/*<button*/}
-                {/*onClick={() => this.props.decreaseAction(1)}*/}
-                {/*>*/}
-                {/*decrease*/}
-                {/*</button>*/}
-                {/*</div>*/}
             </>
         );
     }
@@ -61,20 +48,10 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
     return ({
-        counter: state.applicationReducer.counter
+        counter: state.applicationReducer.counter,
+        user: state.applicationReducer.user
     });
 };
 
-// const mapDispatchToProps = (dispatch) => {
-//   return ({
-//     dispatch: dispatch,
-//     increaseAction: (payload) => {
-//       dispatch(Actions.increaseAction(payload));
-//     },
-//     decreaseAction: (payload) => {
-//       dispatch(Actions.decreaseAction(payload));
-//     }
-//   });
-// };
 
 export default connect(mapStateToProps, Actions)(App);

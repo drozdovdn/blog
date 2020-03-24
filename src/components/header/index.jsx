@@ -13,10 +13,19 @@ export default class Header extends Component {
                 <li><Link className={style.header__menu__link} to="/new-post">Новый пост</Link></li>
             </ul>
         </nav>
-        <ul className={style.header__registration}>
-            <li><Link className={style.header__menu__link} to="/sing-in">Вход</Link></li>
-            <li><Link className={style.header__menu__link} to="/sing-up">Регистрация</Link></li>
-        </ul>
+          {!this.props.user
+              ?
+              <ul className={style.header__registration}>
+                  <li><Link className={style.header__menu__link} to="/sing-in">Вход</Link></li>
+                  <li><Link className={style.header__menu__link} to="/sing-up">Регистрация</Link></li>
+              </ul>
+              :
+              <ul className={style.header__registration}>
+                  <li className={style.header__user}>Привет: {this.props.user.login}</li>
+                  <li className={style.header__exit} onClick={this.props.signOut}>Выход</li>
+              </ul>
+
+          }
       </header>
     )
   }

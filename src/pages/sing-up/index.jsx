@@ -12,6 +12,9 @@ class SignUp extends Component {
         changeFieldAction: PropTypes.func.isRequired,
         // label: PropTypes.string.isRequired
     };
+    onSubmit = () => {
+      this.props.signUpAction(this.props.dataForm);
+    };
 
     render() {
         return (
@@ -77,7 +80,7 @@ class SignUp extends Component {
                         />
                     </div>
                 </div>
-                <button className={style.button}>Зарегистрироваться</button>
+                <button onClick={this.onSubmit} className={style.button}>Зарегистрироваться</button>
             </div>
         );
     }
