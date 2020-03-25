@@ -1,0 +1,32 @@
+.main__page {
+    background: #cccccc;
+    padding: 20px 0;
+}
+.main__post {
+    width: 80%;
+    margin: 0 auto;
+    background: #ececec;
+}
+.main__post_title {
+    /*margin: 0 0 10px;*/
+    width: 100%;
+    cursor: pointer;
+}
+.main__post_title_link {
+    color: #000;
+    font-weight: 600;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    background: #d7d7d7;
+    transition: all 0.5s ease;
+}
+.main__post_title_link:hover {
+    background: #7d7d7d;
+}
+.main__post_content {
+    padding: 10px;
+    font-size: 16px;
+    color: #727272;
+    margin-bottom: 15px;
+}

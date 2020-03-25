@@ -3,6 +3,9 @@ import {connect} from 'react-redux';
 import {Switch, Route} from 'react-router-dom';
 
 import Header from 'src/components/header';
+
+import MainPage from 'src/pages/main';
+import PostPage from 'src/pages/post';
 import SignIn from 'src/pages/sing-in';
 import SignUp from 'src/pages/sing-up';
 import About from 'src/pages/about';
@@ -22,24 +25,12 @@ class App extends Component {
             <>
                 <Header user={this.props.user} signOut={this.props.signOut}/>
                 <Switch>
-                    <Route path='/' exact={true}>
-                        <div>
-                            <h1>Главная</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, ducimus.</p>
-                        </div>
-                    </Route>
-                    <Route path='/about'>
-                        <About />
-                    </Route>
-                    <Route path='/new-post'>
-                        <NewPost/>
-                    </Route>
-                    <Route path='/sing-in'>
-                        <SignIn/>
-                    </Route>
-                    <Route path='/sing-up' >
-                        <SignUp/>
-                    </Route>
+                    <Route path='/' exact={true} component={MainPage}/>
+                    <Route path='/post/:id' exact={true} component={PostPage}/>
+                    <Route path='/about' exact={true} component={About}/>
+                    <Route path='/new-post' exact={true} component={NewPost}/>
+                    <Route path='/sing-in' exact={true} component={SignIn}/>
+                    <Route path='/sing-up' exact={true} component={SignUp}/>
                 </Switch>
             </>
         );

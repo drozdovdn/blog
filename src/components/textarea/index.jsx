@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import style from './style.css';
 
 class Textarea extends Component{
 
@@ -15,9 +16,8 @@ class Textarea extends Component{
 
           <>
               <textarea
+                  className={style.textarea}
                   name="text"
-                  cols="30"
-                  rows="10"
                   value={value}
                   onChange={this.onChange}
               >

@@ -2,8 +2,8 @@ import cloneDeep from 'lodash/cloneDeep';
 
 const initState = {
     dataForm: {
-        titlePost: '',
-        bodyPost: ''
+        title: '',
+        content: ''
     }
 };
 

@@ -5,7 +5,7 @@ body, ul, li, h1, h2, h3, h4, h5, h6, p {
 ul, li {
   display: block;
 }
-h1, h2, h3, h4, h5, h6, ul, li, div, section, form, input, button, span, p, img, a {
+h1, h2, h3, h4, h5, h6, ul, li, div, section, form, input, button, span, p, img, a, textarea {
   box-sizing: border-box;
 }
 a, a:hover, a:active, a:focus {
