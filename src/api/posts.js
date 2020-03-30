@@ -19,7 +19,18 @@ export function newPost(data) {
     return axiosFetch({
         url: 'posts',
         method: 'POST',
-        data: data
+        data
     })
-    
+}
+export function addLikPost(id) {
+    return axiosFetch({
+        url: `posts/like/${id}`,
+        method: 'PUT'
+    })
+}
+export function addDislikePost(id) {
+    return axiosFetch({
+        url: `posts/dislike/${id}`,
+        method: 'PUT'
+    })
 }

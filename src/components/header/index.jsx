@@ -10,7 +10,8 @@ export default class Header extends Component {
             <ul className={style.header__menu}>
                 <li><Link className={style.header__menu__link} to="/">Главная</Link></li>
                 <li><Link className={style.header__menu__link} to="/about">О сайте</Link></li>
-                <li><Link className={style.header__menu__link} to="/new-post">Новый пост</Link></li>
+                { this.props.user && <li><Link className={style.header__menu__link} to="/new-post">Новый пост</Link></li> }
+
             </ul>
         </nav>
           {!this.props.user

@@ -6,14 +6,27 @@ import style from './style.css';
 
 class MainPage extends Component{
     componentDidMount() {
-        this.props.getPostsAction();
+        this.props.getInitPostsAction();
+        window.addEventListener('scroll', this.onScroll);
     }
+    onScroll = (e) => {
+        console.log(e)
+    };
+    onClickLike = (e) => {
+        const id = e.target.id;
+        this.props.addLikePostAction(id);
+    };
+    onClickDislike = (e) => {
+        const id = e.target.id;
+        this.props.addDislikePostAction(id);
+    };
     render() {
         const {posts} = this.props;
         return (
-            <div className={style.main__page}>
+            <div className={style.main__page}
+                onScroll={this.onScroll}>
                 {
-                    posts.map( el => {
+                    posts.map( (el,index) => {
 
                        return (
                                 <div key={el.id} className={style.main__post}>
@@ -26,6 +39,14 @@ class MainPage extends Component{
                                         <p>
                                             {el.content}
                                         </p>
+                                    </div>
+                                    <div>
+                                        <span>{el.likesCount}</span>
+                                        <button id={el.id} onClick={this.onClickLike}>Like</button>
+                                    </div>
+                                    <div>
+                                        <span>{el.dislikesCount}</span>
+                                        <button id={el.id} onClick={this.onClickDislike}>Dislike</button>
                                     </div>
                                 </div>
                        )

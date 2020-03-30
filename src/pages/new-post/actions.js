@@ -9,9 +9,8 @@ export const changeFieldAction = ({fieldId, value}) => ({
 export const newPostAction = (data) => {
    return async function (dispatch) {
        try{
-          dispatch({type: 'NEW_POST_REQUEST'});
-          const response = await API.posts.newPost(data);
-          dispatch({type:'NEW_POST_SUCCESS', payload: response.data});
+          await API.posts.newPost(data);
+          dispatch({type:'NEW_POST_SUCCESS'});
           dispatch(push('/'));
        } catch (error) {
            dispatch({type: 'NEW_POST_FAIL'});

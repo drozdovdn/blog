@@ -15,8 +15,12 @@ class SignUp extends Component {
     onSubmit = () => {
       this.props.signUpAction(this.props.dataForm);
     };
+    checkLogin = () => {
+        this.props.checkLoginAction(this.props.dataForm.login);
+    };
 
     render() {
+        const { errors } = this.props;
         return (
             <div className={style.form__sing__up}>
                 <h1>Регистрация</h1>
@@ -29,6 +33,8 @@ class SignUp extends Component {
                             id="login"
                             value={this.props.dataForm.login}
                             onChange={this.props.changeFieldAction}
+                            error={errors.login}
+                            onBlur={this.checkLogin}
                         />
                     </div>
                 </div>
@@ -39,6 +45,7 @@ class SignUp extends Component {
                     <div>
                         <Input
                             id="email"
+                            error={errors.email}
                             value={this.props.dataForm.email}
                             onChange={this.props.changeFieldAction}
                         />
@@ -51,6 +58,7 @@ class SignUp extends Component {
                     <div>
                         <Input
                             id="firstName"
+                            error={errors.firstName}
                             value={this.props.dataForm.firstName}
                             onChange={this.props.changeFieldAction}
                         />
@@ -63,6 +71,7 @@ class SignUp extends Component {
                     <div>
                         <Input
                             id="lastName"
+                            error={errors.lastName}
                             value={this.props.dataForm.lastName}
                             onChange={this.props.changeFieldAction}
                         />
@@ -75,6 +84,7 @@ class SignUp extends Component {
                     <div>
                         <Input
                             id="password"
+                            error={errors.password}
                             value={this.props.dataForm.password}
                             onChange={this.props.changeFieldAction}
                         />
@@ -87,7 +97,8 @@ class SignUp extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    dataForm: state.signUp.dataForm
+    dataForm: state.signUp.dataForm,
+    errors: state.signUp.errors
 });
 
 export default connect(mapStateToProps, Actions)(SignUp);
