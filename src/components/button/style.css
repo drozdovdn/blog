@@ -1,0 +1,14 @@
+.button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    padding: 5px 15px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background: #e3e3e3;
+    transition: all 0.5s ease;
+}
+.button:hover {
+    background: #bdbdbd;
+}

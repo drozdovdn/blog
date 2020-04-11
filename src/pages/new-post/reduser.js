@@ -22,6 +22,10 @@ export default function newPostReducer(state = initState, action) {
                     [action.payload.fieldId]: action.payload.value
                 }
             });
+        case 'NEW_POST_UNMOUNT':
+            return {
+              ...initState
+            };
         default:
             return state;
     }

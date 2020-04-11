@@ -11,8 +11,13 @@ h1, h2, h3, h4, h5, h6, ul, li, div, section, form, input, button, span, p, img,
 a, a:hover, a:active, a:focus {
   text-decoration:none;
 }
-input:hover, input:focus {
+input:active, input:hover, input:focus {
   outline: none;
+  outline-offset: 0;
+}
+button:active, button:hover, button:focus {
+  outline: none;
+  outline-offset: 0;
 }
 body {
   font-family: 'Roboto', sans-serif;

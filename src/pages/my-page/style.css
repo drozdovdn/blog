@@ -1,0 +1,33 @@
+.my__page {
+    background: #c5c5c5;
+    width: 80%;
+    margin: 5% auto;
+    display: flex;
+    padding: 15px 25px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+.my__page_right {
+    width: 100%;
+    color: #000;
+    margin-left: 20px;
+}
+.my__page_name {
+    font-size: 20px;
+    font-weight: 600;
+    color: tomato;
+}
+.my__page_img {
+    height: 100px;
+    width: 100px;
+}
+
+.my__page_data_list {
+    margin-top: 20px;
+}
+.my__page_data_item {
+    margin-bottom: 5px;
+}
+.my__page_data_item span {
+    font-weight: 600;
+}

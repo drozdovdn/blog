@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropsTypes from 'prop-types';
+import Button from 'src/components/button';
+
 import Input from 'src/components/input';
 import Textaera from 'src/components/textarea';
 import * as Actions from './actions';
@@ -11,8 +13,13 @@ class NewPost extends Component{
     static propTypes = {
         dataForm: PropsTypes.object.isRequired,
         changeFieldAction: PropsTypes.func.isRequired,
-        newPostAction: PropsTypes.func.isRequired
+        newPostAction: PropsTypes.func.isRequired,
+        newPostUnmountAction: PropsTypes.func.isRequired
     };
+
+    componentWillUnmount() {
+        this.props.newPostUnmountAction();
+    }
 
     onSubmit = () => {
         this.props.newPostAction(this.props.dataForm);
@@ -28,6 +35,7 @@ class NewPost extends Component{
                                 id='title'
                                 value = {this.props.dataForm.title}
                                 onChange = {this.props.changeFieldAction}
+                                placeholder='Заголовок поста'
                             />
                         </div>
                     </div>
@@ -37,10 +45,11 @@ class NewPost extends Component{
                                 id='content'
                                 value = {this.props.dataForm.content}
                                 onChange = {this.props.changeFieldAction}
+                                placeholder='Содержание поста'
                             />
                         </div>
                     </div>
-                    <button className={style.new_post_button} onClick={this.onSubmit} >Создать пост</button>
+                    <Button value='Создать пост' onClick={this.onSubmit} />
                 </div>
             </div>
         )

@@ -17,7 +17,6 @@ export const signUpAction = (data) => {
       if(error.response) {
           dispatch({type: 'SIGN_UP_FAIL', payload: error.response.data});
       }
-
     }
   }
 
@@ -34,3 +33,8 @@ export const checkLoginAction = (login) => {
    }
   }
 };
+
+export const singUpUnmountAction = () => ({
+   type: 'SING_UP_UNMOUNT'
+});
+

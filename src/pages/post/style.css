@@ -1,11 +1,6 @@
-.post_page {
-    background: #e0e0e0;
-    height: 94.8vh;
-}
 .post_block {
     width: 80%;
     margin: 0 auto;
-
 }
 .post_title{
     font-size: 16px;
@@ -14,6 +9,5 @@
     border-bottom: 2px solid #727272;
 }
 .post_content {
-    background: #ebebeb;
     padding: 15px 10px;
 }

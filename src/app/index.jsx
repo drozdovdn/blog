@@ -10,6 +10,7 @@ import SignIn from 'src/pages/sing-in';
 import SignUp from 'src/pages/sing-up';
 import About from 'src/pages/about';
 import NewPost from 'src/pages/new-post';
+import MyPage from 'src/pages/my-page';
 
 import * as Actions from './actions';
 import './style.css';
@@ -26,6 +27,7 @@ class App extends Component {
                 <Header user={this.props.user} signOut={this.props.signOut}/>
                 <Switch>
                     <Route path='/' exact={true} component={MainPage}/>
+                    {this.props.user && <Route path='/my-page' exact={true} component={MyPage}/> }
                     <Route path='/post/:id' exact={true} component={PostPage}/>
                     <Route path='/about' exact={true} component={About}/>
                     {this.props.user && <Route path='/new-post' exact={true} component={NewPost}/>}

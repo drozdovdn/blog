@@ -9,7 +9,6 @@ const initState = {
 
 function merge(state, someObject) {
   const clonnedState = cloneDeep(state);
-
   return Object.assign(clonnedState, someObject);
 }
 
@@ -22,6 +21,10 @@ export default function signInReducer(state = initState, action) {
           [action.payload.fieldId]: action.payload.value
         }
       });
+      case 'SING_IN_UNMOUNT':
+        return {
+          ...initState
+        };
     default:
       return state;
   }

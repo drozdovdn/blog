@@ -9,6 +9,10 @@ export default function postReduser(state=initState, action) {
                     ...state,
                     data: action.payload
                 };
+            case 'POST_UNMOUNT':
+                return {
+                  ...initState
+                };
             default:
                 return state;
         }    

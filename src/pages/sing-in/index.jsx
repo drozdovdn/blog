@@ -4,27 +4,26 @@ import { push } from 'connected-react-router';
 
 import PropTypes from 'prop-types';
 import Input from 'src/components/input';
+import Button from 'src/components/button';
 import * as Actions from './actions';
 import style from './style.css'
-import API from 'src/api';
-
 
 class SignIn extends Component {
   static propTypes = {
     dataForm: PropTypes.object.isRequired,
     changeFieldAction: PropTypes.func.isRequired,
-      singInAction: PropTypes.func.isRequired,
-    // label: PropTypes.string.isRequired
+    singInAction: PropTypes.func.isRequired,
+    singInUnmountAction: PropTypes.func.isRequired
   };
 
-  onSubmit = () => {
+  componentWillUnmount() {
+      this.props.singInUnmountAction();
+  };
+
+    onSubmit = () => {
       const {dataForm} = this.props;
-   //  console.log(this.props);
-   // this.props.push('/');
       this.props.singInAction(dataForm);
   };
-
-
 
   render() {
     return (
@@ -54,7 +53,7 @@ class SignIn extends Component {
             />
           </div>
         </div>
-        <button className={style.button} onClick={this.onSubmit}>Вход</button>
+        <Button value='Вход' onClick={this.onSubmit} />
       </div>
     );
   }

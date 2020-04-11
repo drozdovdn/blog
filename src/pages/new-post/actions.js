@@ -16,4 +16,8 @@ export const newPostAction = (data) => {
            dispatch({type: 'NEW_POST_FAIL'});
        }
    }
-}
+};
+
+export const newPostUnmountAction = () => ({
+    type: 'NEW_POST_UNMOUNT'
+});

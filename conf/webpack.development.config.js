@@ -20,7 +20,12 @@ export default new Config().extend('conf/webpack.common.config.js').merge({
         target: 'http://school-blog.ru',
         secure: false,
         changeOrigin: true
-      }
+      },
+      '/images/': {
+        target: 'http://school-blog.ru',
+        secure: false,
+        changeOrigin: true
+      },
     }
   },
 

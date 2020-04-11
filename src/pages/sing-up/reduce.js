@@ -19,9 +19,9 @@ const initState = {
 
 function merge(state, someObject) {
   const clonnedState = cloneDeep(state);
-
   return Object.assign(clonnedState, someObject);
 }
+
 function mapErrorFromServer(errorFromServer) {
    const errorCode = Object.keys(errorFromServer)[0];
    switch (errorCode) {
@@ -29,10 +29,13 @@ function mapErrorFromServer(errorFromServer) {
          return 'Такой логин занят!';
        case 'isRequired':
          return 'Поле обязаткльно для заполнения!';
+       case 'minLength':
+         return 'Минимальная длинна пароля 3 символа';
        default:
          return errorCode;
    }
 }
+
 function getFormErrors(payload) {
   const errorKeys = Object.keys(payload);
   const errors = errorKeys.reduce(function (result,errorKeys) {
@@ -63,6 +66,10 @@ export default function signUpReducer(state = initState, action) {
         return {
             ...state,
             errors: getFormErrors(action.payload)
+        };
+      case 'SING_UP_UNMOUNT':
+        return {
+          ...initState
         };
     default:
       return state;

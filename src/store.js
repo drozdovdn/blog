@@ -9,11 +9,14 @@ import signUpReducer from 'src/pages/sing-up/reduce';
 import newPostReducer from 'src/pages/new-post/reduser';
 import postReduser from 'src/pages/post/reduser';
 import mainReduser from 'src/pages/main/reduser';
+import myPageReduser from 'src/pages/my-page/reduser';
+import modalReduser from 'src/components/modal/reduser';
 import {history} from 'src/history';
 
 const logger = createLogger({
     collapsed: true
 });
+// --------- ПРИМЕР: --------------
 // function myMiddleware(store) {
 //     return function (next) {
 //         return function (action) {
@@ -42,7 +45,9 @@ const createRootReducer = (history) => combineReducers({
     signUp: signUpReducer,
     newPost: newPostReducer,
     postPage: postReduser,
-    main: mainReduser
+    main: mainReduser,
+    myPage: myPageReduser,
+    modal: modalReduser
 });
 
 

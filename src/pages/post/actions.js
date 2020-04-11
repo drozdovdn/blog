@@ -12,3 +12,9 @@ export const getPostDataAction = (id) => {
     }
 };
 
+export const postUnmountAction = () => {
+    return({
+        type: 'POST_UNMOUNT'
+    })
+};
+

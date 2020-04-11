@@ -1,22 +1,28 @@
 .header {
-  /*border: 1px solid red;*/
   background: #202020;
   display: flex;
   justify-content: space-between;
 }
-.header__menu, .header__registration {
+.header__menu, .header__registration,.header__menu_nav {
   display: inline-flex;
 }
-.header__menu__link, .header__user, .header__exit {
+.header__menu__link, .header__user, .header__exit, .header__my_page {
   color: #ffffff;
   padding: 10px 15px;
   align-items: center;
   transition: all 0.5s ease;
 }
-.header__exit {
+.header_user__block {
+  display: inline-flex;
+  align-items: center;
+}
+.header__user__login {
+  color: #00ae00;
+}
+.header__exit, .header__my_page {
   cursor: pointer;
 }
-.header__menu__link:hover, .header__exit:hover{
+.header__menu__link:hover, .header__exit:hover, .header__my_page:hover{
   background: #4b4b4b;
 }
 .header__menu li, .header__registration li{
@@ -25,5 +31,10 @@
 }
 .header__menu li:last-child, .header__registration li:last-child {
   border-right: none;
+}
+.header_img {
+  height: 23px;
+  width: 23px;
+  margin-right: 10px;
 }
 

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import Button from 'src/components/button';
 import Input from 'src/components/input';
 import * as Actions from './actions';
 
@@ -9,9 +10,16 @@ import style from './style.css';
 class SignUp extends Component {
     static propTypes = {
         dataForm: PropTypes.object.isRequired,
+        errors: PropTypes.object.isRequired,
         changeFieldAction: PropTypes.func.isRequired,
-        // label: PropTypes.string.isRequired
+        signUpAction: PropTypes.func.isRequired,
+        checkLoginAction: PropTypes.func.isRequired,
+        singUpUnmountAction: PropTypes.func.isRequired
     };
+    componentWillUnmount() {
+        this.props.singUpUnmountAction();
+    };
+
     onSubmit = () => {
       this.props.signUpAction(this.props.dataForm);
     };
@@ -90,7 +98,7 @@ class SignUp extends Component {
                         />
                     </div>
                 </div>
-                <button onClick={this.onSubmit} className={style.button}>Зарегистрироваться</button>
+                <Button value='Зарегистрироваться' onClick={this.onSubmit} />
             </div>
         );
     }
